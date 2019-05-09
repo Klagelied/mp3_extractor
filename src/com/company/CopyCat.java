@@ -5,9 +5,7 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
-import java.util.Scanner;
 
-import static org.apache.commons.io.FileUtils.byteCountToDisplaySize;
 import static org.apache.commons.io.FileUtils.sizeOf;
 
 //import java.io.FileFilter;
@@ -19,6 +17,7 @@ import static org.apache.commons.io.FileUtils.sizeOf;
 -   Zusätzlich kopiere das Bild mit größter KB anzahl dazu
 -   Grafische Oberfläche?
 -   Picklist?
+???
 
 
 
@@ -76,7 +75,7 @@ public class CopyCat {
     }
 
         //Version 3 with org.apache.commons.io.FileUtils
-        public void test() throws IOException{
+        private void test() throws IOException{
 
             File dirS = new File(dirSourceName);
             File dirD = new File(dirCopyToName);
