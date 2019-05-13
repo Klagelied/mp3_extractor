@@ -1,24 +1,35 @@
 package com.company;
-import java.io.File;
-//import java.io.FileFilter;
-//import java.io.FilenameFilter;
-import java.io.IOException;
-//import java.lang.reflect.Array;
-import java.util.*;
 
 import org.apache.commons.io.FileUtils;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Collection;
+
+import static org.apache.commons.io.FileUtils.sizeOf;
+
+//import java.io.FileFilter;
+//import java.io.FilenameFilter;
+//import java.lang.reflect.Array;
+
 /*Verbesserungen:
 -   Add mp3 > gewisser KB anzahl
--   Zusätzlich kopiere das Bild mit gröster KB anzahl dazu
+-   Zusätzlich kopiere das Bild mit größter KB anzahl dazu
 -   Grafische Oberfläche?
+-   Picklist?
+???
+
 
 
 
  */
 public class CopyCat {
-        String dirCopyToName = "F:\\osuCopyMusic\\mp3";
-        String dirSourceName = "F:\\osu!\\Songs";
+
+    //"F:\\osuCopyMusic\\mp3"
+    //"F:\\osu!\\Songs"
+       private String dirCopyToName ="C:\\temp\\copytest";
+       private String dirSourceName ="C:\\temp\\kek";
+
 
         //Version 2
                                                                             /*
@@ -52,19 +63,26 @@ public class CopyCat {
             }
        }
        }
-                                                                             */
+        */
         //Version 2 Ende
 
+    public String getDirCopyToName(){
+        return dirCopyToName;
+    }
+
+    public void setDirCopyToName(String sdctn){
+        this.dirCopyToName = sdctn;
+    }
 
         //Version 3 with org.apache.commons.io.FileUtils
-        public void test() throws IOException{
-
+        private void test() throws IOException{
 
             File dirS = new File(dirSourceName);
             File dirD = new File(dirCopyToName);
 
 
-            Collection<File> files = FileUtils.listFiles(dirS, new String[] {"mp3"}, true);
+            //mp3
+            Collection<File> files = FileUtils.listFiles(dirS, new String[] {"txt", "jpg"}, true);
 
             for(File file : files){
                 System.out.println(file);
@@ -74,13 +92,16 @@ public class CopyCat {
                 }
                 else if(file.exists())
                 {
-                    FileUtils.copyFileToDirectory(file, dirD);
+                    System.out.println(sizeOf(file));
+                    if(sizeOf(file)< 40000) {
+                        FileUtils.copyFileToDirectory(file, dirD);
+                    }
                 }
 
             }
 
         }
-        //Ende V3
+    //Ende V3
 
 
         //Liest aktuell alle Files aus C:\Temp aus.
