@@ -2,11 +2,14 @@ package com.company;
 
 import org.apache.commons.io.FileUtils;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 
 import static org.apache.commons.io.FileUtils.sizeOf;
+
 
 //import java.io.FileFilter;
 //import java.io.FilenameFilter;
@@ -66,6 +69,26 @@ public class CopyCat {
         */
         //Version 2 Ende
 
+    private void guiTest(){
+        JFrame meinFrame = new JFrame("Example");
+        meinFrame.setSize(400,400);
+
+        JPanel panel = new JPanel();
+        JButton buttonOne = new JButton("KLick");
+        panel.add(buttonOne);
+        meinFrame.add(panel);
+        meinFrame.setVisible(true);
+
+        buttonOne.addActionListener(this::actionPerformed);
+    }
+
+    private void actionPerformed (ActionEvent ae){
+        ae.getSource();
+        System.out.println("Yo");
+    }
+
+
+
     public String getDirCopyToName(){
         return dirCopyToName;
     }
@@ -107,7 +130,7 @@ public class CopyCat {
         //Liest aktuell alle Files aus C:\Temp aus.
         //Weitergehend nachdem alle Files in die ArrayList aufgenommen wurden, die verwerfen, welche nicht die Endung .txt haben
 
-        public static void main(String[] args) throws IOException {
+        public static void main(String[] args) {//throws IOException {
 
 
 
@@ -123,7 +146,8 @@ public class CopyCat {
 
             //V3
             CopyCat testcopy = new CopyCat();
-            testcopy.test();
+            //testcopy.test();
+            testcopy.guiTest();
             //V3 Ende
         }
 
