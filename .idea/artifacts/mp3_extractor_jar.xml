@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="mp3_extractor:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/mp3_extractor_jar</output-path>
+    <root id="archive" name="mp3_extractor.jar">
+      <element id="module-output" name="mp3_extractor" />
+      <element id="extracted-dir" path="C:/Script/ph/commons-io-2.6-bin/commons-io-2.6/commons-io-2.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Script/ph/commons-io-2.6-bin/commons-io-2.6/commons-io-2.6-tests.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Script/ph/commons-io-2.6-bin/commons-io-2.6/commons-io-2.6-javadoc.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Script/ph/commons-io-2.6-bin/commons-io-2.6/commons-io-2.6-sources.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Script/ph/commons-io-2.6-bin/commons-io-2.6/commons-io-2.6-test-sources.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
