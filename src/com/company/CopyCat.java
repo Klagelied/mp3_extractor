@@ -27,11 +27,13 @@ import static org.apache.commons.io.FileUtils.sizeOf;
 
  */
 public class CopyCat {
+    
+       //private String dirCopyToName ="C:\\temp\\copytest";
+       //private String dirSourceName ="C:\\temp\\kek";
+         private String dirCopyToName ="F:\\osuCopyMusic\\mp3";
+         private String dirCopyToNameJpg ="F:\\osuCopyMusic\\jpg";
+         private String dirSourceName ="F:\\osu!\\Songs";
 
-    //"F:\\osuCopyMusic\\mp3"
-    //"F:\\osu!\\Songs"
-       private String dirCopyToName ="C:\\temp\\copytest";
-       private String dirSourceName ="C:\\temp\\kek";
 
 
         //Version 2
@@ -98,31 +100,36 @@ public class CopyCat {
     }
 
         //Version 3 with org.apache.commons.io.FileUtils
-        private void test() throws IOException{
+        private void test() throws IOException {
 
             File dirS = new File(dirSourceName);
             File dirD = new File(dirCopyToName);
+            File dirJ = new File(dirCopyToNameJpg);
 
 
             //mp3
-            Collection<File> files = FileUtils.listFiles(dirS, new String[] {"txt", "jpg"}, true);
+            String[] extensions = {"mp3", "jpg"};
+            Collection<File> files = FileUtils.listFiles(dirS, extensions, true);
 
-            for(File file : files){
+            for (File file : files) {
                 System.out.println(file);
 
-                if(file.isDirectory()){
-                    System.out.println("Dir");
-                }
-                else if(file.exists())
-                {
+                if (file.isDirectory()) {
+                System.out.println("dir");
+                } else if (file.exists()) {
                     System.out.println(sizeOf(file));
-                    if(sizeOf(file)< 40000) {
-                        FileUtils.copyFileToDirectory(file, dirD);
+                    if (sizeOf(file) > 150000) {
+                        String distinctFileType = file.getCanonicalPath();
+                        if (distinctFileType.contains(".mp3")) {
+                            FileUtils.copyFileToDirectory(file, dirD);
+                        } else if(distinctFileType.contains(".jpg")){
+                            FileUtils.copyFileToDirectory(file, dirJ);
+                        }
                     }
+
                 }
 
             }
-
         }
     //Ende V3
 
